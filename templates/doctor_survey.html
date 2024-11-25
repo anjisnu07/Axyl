@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>AXYL</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .nav {
+            display: flex;
+            height: 28px;
+            padding: 17.237px 42px 17.283px 41px;
+            justify-content: center;
+            align-items: center;
+            background: #F5FFFF;
+            gap: 85%;
+            box-shadow: 0px 1px 29px 0px rgba(0, 0, 0, 0.31);
+        }
+        .aboutus {
+            display: flex;
+            width: 134px;
+            height: 28px;
+            padding: 0px 4px;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .descbox {
+            height: 530px;
+            background-color: #E4FFFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .box1 {
+            width: 600px;
+            height: 200px;
+            margin-left: 5%;
+        }
+        .heaidngboss {
+            color: #000;
+            font-size: 48px;
+            font-weight: 600;
+        }
+        .description {
+            color: #000;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 25px;
+            margin-top: 20px;
+        }
+        .button {
+            display: flex;
+            width: 158px;
+            height: 50px;
+            padding: 6px 32px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 26px;
+            background: #347E7E;
+            color: #E4FFFF;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 28px;
+            margin-top: 20px;
+        }
+        .box2 img{
+            height: 520px;
+            margin: 0px;
+        }
+        .drs_form {
+            background: #F9F9F9;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            background-color: #E4FFFF;
+            background: url('{{ url_for('static', filename='images/stetho.png') }}') #E4FFFF 0px 0px / 100% 100% no-repeat;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            margin-top: 15px;
+        }
+        input[type="text"], input[type="email"], select {
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .mcq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .mcq-option {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .mcq-option:hover {
+            border-color: #007bff;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+        }
+        .mcq-option.selected {
+            background-color: #28a745; /* Green background when selected */
+            color: white;
+        }
+        .mcq-option input[type="checkbox"] {
+            display: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .footer{
+            display: flex;
+            justify-content: space-between;
+            background-color: #E4FFFF;
+            padding-top: 50px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 5px;
+        }
+        .icon-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mail {
+            font-size: 16px;
+            color: #333;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="" height="40px">
+        </div>
+        
+        <div class="aboutus">
+            Get to Know Us
+        </div>
+    </div>
+
+    <div class="descbox">
+        <div class="box1">
+            <div class="heaidngboss">
+                Struggling to find trusted doctors nearby?
+            </div>
+            <div class="description">
+                We connect you with certified healthcare professionals in your area or online – hassle-free!
+            </div>
+            <a href="#healthcareForm">
+                <div class="button">
+                    Connect Now
+                </div>
+            </a>
+        </div>
+        <div class="box2">
+            <img src="{{ url_for('static', filename='images/dr_icon.png') }}" alt="" >
+        </div>
+    </div>
+
+    <div class="drs_form">
+        <div class="form-container">
+            <form id="healthcareForm" action="/submit" method="POST">
+                <h2>Healthcare Feedback Form</h2>
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                
+                <label for="phone">Your Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+                
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label class="question-label">What is your most common concern about healthcare?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="difficulty">
+                        <span>Difficulty finding specialists</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="waiting">
+                        <span>Long waiting times</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="pricing">
+                        <span>Unclear pricing</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="communication">
+                        <span>Lack of communication from providers</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="other">
+                        <span>Other (please specify)</span>
+                    </div>
+                </div>
+                
+                <label class="question-label">How would you like it, if a doctor visits you at the comfort of your home?</label>
+<div class="mcq-container">
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="yes">
+        <span>Yes, Definitely</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="veryWell">
+        <span>Very well</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="maybe">
+        <span>Maybe</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="no">
+        <span>I don’t think so</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="notLikely">
+        <span>Not likely</span>
+    </div>
+</div>
+
+<label class="question-label">How important is technology in improving your healthcare experience?</label>
+<div class="mcq-container">
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="veryImportant">
+        <span>Very Important</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="important">
+        <span>Important</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="neutral">
+        <span>Neutral</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="lessImportant">
+        <span>Less Important</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="notImportant">
+        <span>Not Important</span>
+    </div>
+</div>
+
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="icon-text">
+            
+            <div class="mail">© 2024 Axyl Technology. All Rights Reserved.</div>
+        </div>
+        <div class="icon-text">
+            <i class="fa fa-envelope" style="color:#666;"></i>
+            <div class="mail">contact@axyltechnologies.com</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSelect(option) {
+            const checkbox = option.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            option.classList.toggle('selected', checkbox.checked);
+        }
+    </script>
+</body>
+</html>

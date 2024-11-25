@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Thank_you</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    a {
+        text-decoration: none;
+    }
+    body {
+        background-color: #E4FFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .centerbox {
+        height: 450px;
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .thanks img {
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .thankstxt {
+        color: #000;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px; /* 116.667% */
+    }
+    .btn {
+        color: #E4FFFF;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        margin-top: 20px;
+        border-radius: 26px;
+        background: #347E7E;
+        height: 50px;
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    
+</style>
+<body>
+    <div class="centerbox">
+        
+        <div class="thanks">
+            <img src="{{ url_for('static', filename='images/thanks.png') }}" alt="">
+        </div>
+        <div class="thankstxt">
+            Your form has been submitted successfully!
+        </div>
+        <a href="/">
+            <div class="btn">
+                Go to Homepage
+                
+            </div>
+        </a>
+        <span>Redirecting you in <span class="timer" id="timer">10</span></span>
+    </div>
+    <script>
+        let countdown = 10;
+        const timerElement = document.getElementById('timer');
+        const interval = setInterval(() => {
+            countdown--;
+            timerElement.textContent = countdown;
+            if (countdown <= 0) {
+                clearInterval(interval);
+                window.location.href = '/'; // Redirect to homepage
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
