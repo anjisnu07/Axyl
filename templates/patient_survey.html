@@ -11,7 +11,6 @@
             margin: 0px;
             padding: 0px;
             font-family: 'Montserrat', sans-serif;
-            
         }
         .nav {
             display: flex;
@@ -81,10 +80,8 @@
             padding: 40px 20px;
             display: flex;
             justify-content: center;
-           
             background-color: #E4FFFF;
             background: url('{{ url_for('static', filename='images/stetho.png') }}') #E4FFFF 0px 0px / 100% 100% no-repeat;
-            
         }
         .form-container {
             background: #fff;
@@ -102,7 +99,6 @@
         }
         label {
             margin-top: 15px;
-            
         }
         input[type="text"], input[type="email"], select {
             margin-top: 5px;
@@ -132,11 +128,11 @@
             border-color: #007bff;
             box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
         }
-        .mcq-option input[type="radio"]:checked + span {
-            font-weight: bold;
-            color: #007bff;
+        .mcq-option.selected {
+            background-color: #28a745; /* Green background when selected */
+            color: white;
         }
-        .mcq-option input[type="radio"] {
+        .mcq-option input[type="checkbox"] {
             display: none;
         }
         button {
@@ -164,13 +160,172 @@
         .icon-text {
             display: flex;
             align-items: center;
-            gap: 8px; /* Add spacing between the icon and text */
-          }
-          
-          .mail {
+            gap: 8px;
+        }
+        .mail {
             font-size: 16px;
-            color: #333; /* Adjust color if needed */
-          }
+            color: #333;
+        }
+        a{
+            text-decoration: none;
+        }
+        @media only screen and (max-width: 480px){
+            .nav {
+                padding: 10px;
+                gap: 40%;
+            }
+        
+            
+            .descbox{
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                height: fit-content;
+            }
+            .box1 {
+                width: 300px;
+                height: 100px;
+                margin-left: 5%;
+                position: absolute;
+                z-index: 1;
+                margin-top: 50px;
+            }
+            .heaidngboss {
+                color: #000;
+                font-size: 24px;
+                font-weight: 600;
+            }
+            .description {
+                color: #000;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 25px;
+                margin-top: 20px;
+            }
+            .button {
+                display: flex;
+                width: 158px;
+                height: 50px;
+                padding: 6px 32px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 26px;
+                background: #347E7E;
+                color: #E4FFFF;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 28px;
+                margin-top: 20px;
+            }
+            .box2 img{
+                height: 360px;
+                margin: 0px;
+                opacity: 0.3;
+            }
+            .footer{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 50px;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-bottom: 5px;
+                flex-direction: column-reverse;
+                gap: 3px;
+            }
+            .icon-text {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .mail {
+                font-size: 12px;
+                color: #333;
+            }
+        }
+        @media only screen and (max-width: 400px) {
+            .nav {
+                padding: 5px;
+                gap: 30%;
+            }
+        
+            .descbox {
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+            }
+        
+            .box1 {
+                width: 250px;
+                height: 80px;
+                margin-left: 5%;
+                position: absolute;
+                z-index: 1;
+                margin-top: 50px;
+            }
+        
+            .heaidngboss {
+                color: #000;
+                font-size: 18px;
+                font-weight: 600;
+            }
+        
+            .description {
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 20px;
+                margin-top: 10px;
+            }
+        
+            .button {
+                display: flex;
+                width: 130px;
+                height: 45px;
+                padding: 6px 28px;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                border-radius: 26px;
+                background: #347E7E;
+                color: #E4FFFF;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 24px;
+                margin-top: 10px;
+            }
+        
+            .box2 img {
+                height: 280px;
+                margin: 0px;
+                opacity: 0.3;
+            }
+        
+            .footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 20px;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-bottom: 5px;
+                flex-direction: column-reverse;
+                gap: 3px;
+            }
+        
+            .icon-text {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+        
+            .mail {
+                font-size: 10px;
+                color: #333;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -178,6 +333,7 @@
         <div class="logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="" height="40px">
         </div>
+        
         <div class="aboutus">
             Get to Know Us
         </div>
@@ -191,9 +347,11 @@
             <div class="description">
                 Our platform helps you attract patients, manage bookings, and build your brand seamlessly.
             </div>
-            <div class="button">
-                Connect Now
-            </div>
+            <a href="#healthcareForm">
+                <div class="button">
+                    Connect Now
+                </div>
+            </a>
         </div>
         <div class="box2">
             <img src="{{ url_for('static', filename='images/patient_icon.png') }}" alt="" >
@@ -215,87 +373,99 @@
                 
                 <label class="question-label">What is your most common concern about healthcare?</label>
                 <div class="mcq-container">
-                    <label class="mcq-option">
-                        <input type="radio" name="concern" value="difficulty" required>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="difficulty">
                         <span>Difficulty finding specialists</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="concern" value="waiting">
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="waiting">
                         <span>Long waiting times</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="concern" value="pricing">
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="pricing">
                         <span>Unclear pricing</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="concern" value="communication">
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="communication">
                         <span>Lack of communication from providers</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="concern" value="other">
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="concern[]" value="other">
                         <span>Other (please specify)</span>
-                    </label>
+                    </div>
                 </div>
                 
                 <label class="question-label">How would you like it, if a doctor visits you at the comfort of your home?</label>
-                <div class="mcq-container">
-                    <label class="mcq-option">
-                        <input type="radio" name="doctorVisit" value="yes" required>
-                        <span>Yes, Definitely</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="doctorVisit" value="veryWell">
-                        <span>Very well</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="doctorVisit" value="maybe">
-                        <span>Maybe</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="doctorVisit" value="no">
-                        <span>I don’t think so</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="doctorVisit" value="notLikely">
-                        <span>Not likely</span>
-                    </label>
-                </div>
-                
-                <label class="question-label">How important is technology in improving your healthcare experience?</label>
-                <div class="mcq-container">
-                    <label class="mcq-option">
-                        <input type="radio" name="technology" value="veryImportant" required>
-                        <span>Very Important</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="technology" value="important">
-                        <span>Important</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="technology" value="neutral">
-                        <span>Neutral</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="technology" value="lessImportant">
-                        <span>Less Important</span>
-                    </label>
-                    <label class="mcq-option">
-                        <input type="radio" name="technology" value="notImportant">
-                        <span>Not Important</span>
-                    </label>
-                </div>
+<div class="mcq-container">
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="yes">
+        <span>Yes, Definitely</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="veryWell">
+        <span>Very well</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="maybe">
+        <span>Maybe</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="no">
+        <span>I don’t think so</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="doctorVisit[]" value="notLikely">
+        <span>Not likely</span>
+    </div>
+</div>
+
+<label class="question-label">How important is technology in improving your healthcare experience?</label>
+<div class="mcq-container">
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="veryImportant">
+        <span>Very Important</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="important">
+        <span>Important</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="neutral">
+        <span>Neutral</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="lessImportant">
+        <span>Less Important</span>
+    </div>
+    <div class="mcq-option" onclick="toggleSelect(this)">
+        <input type="checkbox" name="technology[]" value="notImportant">
+        <span>Not Important</span>
+    </div>
+</div>
+
                 
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
-    <!-- Footer -->
+
     <div class="footer">
-        <div class="rights">© 2024 Axyl Technology. All Rights Reserved.</div>
         <div class="icon-text">
-            <i class="fas fa-envelope" style="color: #347E7E; font-size: 24px;"></i>
-            <div class="mail">anirbaniitr@gmail.com</div>
+            
+            <div class="mail">© 2024 Axyl Technology. All Rights Reserved.</div>
+        </div>
+        <div class="icon-text">
+            <i class="fa fa-envelope" style="color:#666;"></i>
+            <div class="mail">contact@axyltechnologies.com</div>
         </div>
     </div>
+
+    <script>
+        function toggleSelect(option) {
+            const checkbox = option.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            option.classList.toggle('selected', checkbox.checked);
+        }
+    </script>
 </body>
 </html>
