@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>Feedback Records</h1>
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>ID</th>
@@ -17,6 +40,11 @@
                 <th>Concerns</th>
                 <th>Doctor Visit</th>
                 <th>Technology</th>
+                <th>Challenge</th>
+                <th>Booking Method</th>
+                <th>Virtual Consultation</th>
+                <th>Price Transparency</th>
+                <th>Convenience</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +57,11 @@
                     <td>{{ record.concern }}</td>
                     <td>{{ record.doctorVisit }}</td>
                     <td>{{ record.technology }}</td>
+                    <td>{{ record.challenge }}</td>
+                    <td>{{ record.booking }}</td>
+                    <td>{{ record.virtual }}</td>
+                    <td>{{ record.priceTransparency }}</td>
+                    <td>{{ record.convenience }}</td>
                 </tr>
             {% endfor %}
         </tbody>

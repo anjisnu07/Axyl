@@ -360,94 +360,195 @@
 
     <div class="drs_form">
         <div class="form-container">
-            <form id="healthcareForm" action="/submit" method="POST">
+            <form id="healthcareForm" action="/submit_dr" method="POST">
                 <h2>Healthcare Feedback Form</h2>
+    
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                
+    
                 <label for="phone">Your Phone Number</label>
                 <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
-                
+    
                 <label for="email">Your Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                
-                <label class="question-label">What is your most common concern about healthcare?</label>
+    
+                <label class="question-label">What is your most common challenge in managing your practice?</label>
                 <div class="mcq-container">
                     <div class="mcq-option" onclick="toggleSelect(this)">
-                        <input type="checkbox" name="concern[]" value="difficulty">
-                        <span>Difficulty finding specialists</span>
+                        <input type="checkbox" name="challenge[]" value="lowPatient">
+                        <span>Low patient footfall</span>
                     </div>
                     <div class="mcq-option" onclick="toggleSelect(this)">
-                        <input type="checkbox" name="concern[]" value="waiting">
-                        <span>Long waiting times</span>
+                        <input type="checkbox" name="challenge[]" value="inefficient">
+                        <span>Inefficient scheduling</span>
                     </div>
                     <div class="mcq-option" onclick="toggleSelect(this)">
-                        <input type="checkbox" name="concern[]" value="pricing">
-                        <span>Unclear pricing</span>
+                        <input type="checkbox" name="challenge[]" value="patient">
+                        <span>Patient retention issues</span>
                     </div>
                     <div class="mcq-option" onclick="toggleSelect(this)">
-                        <input type="checkbox" name="concern[]" value="communication">
-                        <span>Lack of communication from providers</span>
+                        <input type="checkbox" name="challenge[]" value="Workload">
+                        <span>Administrative workload</span>
                     </div>
                     <div class="mcq-option" onclick="toggleSelect(this)">
-                        <input type="checkbox" name="concern[]" value="other">
-                        <span>Other (please specify)</span>
+                        <input type="checkbox" name="challenge[]" value="limitedAccess">
+                        <span>Limited access to modern tools</span>
                     </div>
                 </div>
-                
-                <label class="question-label">How would you like it, if a doctor visits you at the comfort of your home?</label>
-<div class="mcq-container">
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="doctorVisit[]" value="yes">
-        <span>Yes, Definitely</span>
-    </div>
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="doctorVisit[]" value="veryWell">
-        <span>Very well</span>
-    </div>
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="doctorVisit[]" value="maybe">
-        <span>Maybe</span>
-    </div>
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="doctorVisit[]" value="no">
-        <span>I don’t think so</span>
-    </div>
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="doctorVisit[]" value="notLikely">
-        <span>Not likely</span>
-    </div>
-</div>
-
-<label class="question-label">How important is technology in improving your healthcare experience?</label>
-<div class="mcq-container">
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="technology[]" value="veryImportant">
-        <span>Very Important</span>
-    </div>
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="technology[]" value="important">
-        <span>Important</span>
-    </div>
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="technology[]" value="neutral">
-        <span>Neutral</span>
-    </div>
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="technology[]" value="lessImportant">
-        <span>Less Important</span>
-    </div>
-    <div class="mcq-option" onclick="toggleSelect(this)">
-        <input type="checkbox" name="technology[]" value="notImportant">
-        <span>Not Important</span>
-    </div>
-</div>
-
-                
+    
+                <label class="question-label">Would you consider offering specialized care for homebound or immobile patients?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="homeboundCare[]" value="yes">
+                        <span>Yes, Definitely</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="homeboundCare[]" value="veryWell">
+                        <span>Very well</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="homeboundCare[]" value="maybe">
+                        <span>Maybe</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="homeboundCare[]" value="no">
+                        <span>I don’t think so</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="homeboundCare[]" value="notLikely">
+                        <span>Not likely</span>
+                    </div>
+                </div>
+    
+                <label class="question-label">Would you be open to attending to patients in remote or rural areas if needed?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="remoteCare[]" value="yes">
+                        <span>Yes, Definitely</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="remoteCare[]" value="veryWell">
+                        <span>Very well</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="remoteCare[]" value="maybe">
+                        <span>Maybe</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="remoteCare[]" value="no">
+                        <span>I don’t think so</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="remoteCare[]" value="notLikely">
+                        <span>Not likely</span>
+                    </div>
+                </div>
+    
+                <label class="question-label">How important is technology in improving your healthcare experience?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="technology[]" value="veryImportant">
+                        <span>Very Important</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="technology[]" value="important">
+                        <span>Important</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="technology[]" value="lessImportant">
+                        <span>Less Important</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="technology[]" value="notImportant">
+                        <span>Not Important</span>
+                    </div>
+                </div>
+    
+                <label class="question-label">What is your biggest challenge in managing your practice?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="biggestChallenge[]" value="lowPatientFootfall">
+                        <span>Low patient footfall</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="biggestChallenge[]" value="appointmentScheduling">
+                        <span>Appointment scheduling</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="biggestChallenge[]" value="recordKeeping">
+                        <span>Record keeping</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="biggestChallenge[]" value="managingStaff">
+                        <span>Managing staff</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="biggestChallenge[]" value="other">
+                        <span>Other</span>
+                    </div>
+                </div>
+    
+                <label class="question-label">How do you currently promote your clinic or practice?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="promotion[]" value="wordOfMouth">
+                        <span>Word of mouth</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="promotion[]" value="socialMedia">
+                        <span>Social media</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="promotion[]" value="localAds">
+                        <span>Local ads</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="promotion[]" value="other">
+                        <span>Other</span>
+                    </div>
+                </div>
+    
+                <label class="question-label">Do you face challenges in retaining patients?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="retainingPatients[]" value="yes">
+                        <span>Yes</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="retainingPatients[]" value="no">
+                        <span>No</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="retainingPatients[]" value="sometimes">
+                        <span>Sometimes</span>
+                    </div>
+                </div>
+    
+                <label class="question-label">Would you use a platform that simplifies patient appointments and records?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="usePlatform[]" value="yes">
+                        <span>Yes</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="usePlatform[]" value="no">
+                        <span>No</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="usePlatform[]" value="maybe">
+                        <span>Maybe</span>
+                    </div>
+                </div>
+    
+                <label for="additionalTools">What additional tools or features would you need to grow your practice?</label>
+                <textarea id="additionalTools" name="additionalTools" rows="4" placeholder="Describe any tools or features that would help your practice grow."></textarea>
+    
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
+    
+    
 
     <div class="footer">
         <div class="icon-text">

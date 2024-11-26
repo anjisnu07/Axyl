@@ -361,16 +361,17 @@
     <div class="drs_form">
         <div class="form-container">
             <form id="healthcareForm" action="/submit" method="POST">
-                <h2>Healthcare Feedback Form</h2>
+                <h4 style="text-align: center;">Quickly fill up this form so that we can serve you better.</h4>
+    
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                
+    
                 <label for="phone">Your Phone Number</label>
                 <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
-                
+    
                 <label for="email">Your Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                
+    
                 <label class="question-label">What is your most common concern about healthcare?</label>
                 <div class="mcq-container">
                     <div class="mcq-option" onclick="toggleSelect(this)">
@@ -394,7 +395,30 @@
                         <span>Other (please specify)</span>
                     </div>
                 </div>
-                
+    
+                <label class="question-label">What is your biggest challenge when seeking healthcare?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="challenge[]" value="specialist">
+                        <span>Difficulty finding a specialist</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="challenge[]" value="waiting">
+                        <span>Long waiting times</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="challenge[]" value="costs">
+                        <span>High consultation costs</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="challenge[]" value="trust">
+                        <span>Lack of trust</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="challenge[]" value="other">
+                        <span>Other</span>
+                    </div>
+                </div>
                 <label class="question-label">How would you like it, if a doctor visits you at the comfort of your home?</label>
 <div class="mcq-container">
     <div class="mcq-option" onclick="toggleSelect(this)">
@@ -443,11 +467,67 @@
     </div>
 </div>
 
-                
+
+                <label class="question-label">How do you usually book appointments with doctors?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="booking[]" value="walk-in">
+                        <span>Walk-in</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="booking[]" value="phone">
+                        <span>Phone call</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="booking[]" value="online">
+                        <span>Online</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="booking[]" value="referrals">
+                        <span>Through referrals</span>
+                    </div>
+                </div>
+    
+                <label class="question-label">Would you prefer virtual consultations over in-person visits?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="virtual[]" value="yes">
+                        <span>Yes</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="virtual[]" value="no">
+                        <span>No</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="virtual[]" value="sometimes">
+                        <span>Sometimes</span>
+                    </div>
+                </div>
+    
+                <label class="question-label">How important is price transparency when booking a doctor?</label>
+                <div class="mcq-container">
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="priceTransparency[]" value="veryImportant">
+                        <span>Very Important</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="priceTransparency[]" value="somewhatImportant">
+                        <span>Somewhat Important</span>
+                    </div>
+                    <div class="mcq-option" onclick="toggleSelect(this)">
+                        <input type="checkbox" name="priceTransparency[]" value="notImportant">
+                        <span>Not Important</span>
+                    </div>
+                </div>
+    
+                <label class="question-label">What would make your healthcare experience more convenient?</label>
+                <textarea id="convenience" name="convenience" placeholder="Write your response here..." rows="4"></textarea>
+    
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
+    
 
     <div class="footer">
         <div class="icon-text">
