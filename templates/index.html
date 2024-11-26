@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Axyl</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
 </head>
 <style>
     a{
@@ -17,6 +17,7 @@
         position: relative; /* For pseudo-element overlay */
         overflow: hidden; /* Avoid scrollbars */
         font-family: 'Montserrat', sans-serif;
+        background-color: #E4FFFF;
     }
 
     body::before {
@@ -109,8 +110,15 @@
         body{
             overflow: scroll;
         }
+        .nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .catag{
             display: flex;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
             overflow: scroll;
             height: auto;
