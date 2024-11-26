@@ -12,6 +12,13 @@
             padding: 0px;
             font-family: 'Montserrat', sans-serif;
         }
+        body{
+            background-color: #E4FFFF;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
         .nav {
             display: flex;
             height: 28px;
@@ -30,6 +37,18 @@
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
+        }
+        .entire{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .abouticon{
+           display: flex;
+           justify-content: center;
+           align-items: center;
         }
         .descbox {
             height: 530px;
@@ -55,10 +74,14 @@
             line-height: 25px;
             margin-top: 20px;
         }
+        #convenience{
+            margin-top: 5px;
+            margin-left: 2px;
+        }
         .button {
             display: flex;
             width: 158px;
-            height: 50px;
+            height: 40px;
             padding: 6px 32px;
             justify-content: center;
             align-items: center;
@@ -75,9 +98,27 @@
             height: 520px;
             margin: 0px;
         }
+        .info{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 90px;
+            
+            z-index: 1;
+        }
+        .infohere{
+            color: #000;
+            width: 600px;
+            text-align: center;
+            font-family: Montserrat;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500px;
+        }
         .drs_form {
             background: #F9F9F9;
-            padding: 40px 20px;
+            padding: 140px 20px;
             display: flex;
             justify-content: center;
             background-color: #E4FFFF;
@@ -171,8 +212,14 @@
         }
         @media only screen and (max-width: 480px){
             .nav {
-                padding: 10px;
-                gap: 40%;
+                padding: 15px;
+                gap: 60%;
+            }
+            .entire{
+                width: 90px;
+            }
+            .aboutus{
+                width: 80px;
             }
         
             
@@ -219,7 +266,7 @@
                 margin-top: 20px;
             }
             .box2 img{
-                height: 360px;
+                height: 340px;
                 margin: 0px;
                 opacity: 0.3;
             }
@@ -246,8 +293,14 @@
         }
         @media only screen and (max-width: 400px) {
             .nav {
-                padding: 5px;
-                gap: 30%;
+                padding: 15px;
+                gap: 60%;
+            }
+            .entire{
+                width: 90px;
+            }
+            .aboutus{
+                width: 80px;
             }
         
             .descbox {
@@ -330,13 +383,22 @@
 </head>
 <body>
     <div class="nav">
+       <a href="/">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="" height="40px">
         </div>
+       </a> 
+       <div class="entire">
+        <a href="/aboutus">
+            <div class="abouticon">
+                <img src="{{ url_for('static', filename='images/aboutus.png') }}" alt="" height="25px">
+            </div>
+            <div class="aboutus">
+                About us
+            </div>
+        </a>
+    </div> 
         
-        <div class="aboutus">
-            Get to Know Us
-        </div>
     </div>
 
     <div class="descbox">
@@ -357,12 +419,14 @@
             <img src="{{ url_for('static', filename='images/dr_icon.png') }}" alt="" >
         </div>
     </div>
-
+    <div class="info">
+        <div class="infohere">
+            Quickly fill up this form so that we can serve you better.
+        </div>
+    </div>
     <div class="drs_form">
         <div class="form-container">
             <form id="healthcareForm" action="/submit" method="POST">
-                <h4 style="text-align: center;">Quickly fill up this form so that we can serve you better.</h4>
-    
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
     
@@ -521,7 +585,7 @@
                 </div>
     
                 <label class="question-label">What would make your healthcare experience more convenient?</label>
-                <textarea id="convenience" name="convenience" placeholder="Write your response here..." rows="4"></textarea>
+                <textarea id="convenience" name="convenience" rows="4"></textarea>
     
                 <button type="submit">Submit</button>
             </form>

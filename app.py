@@ -164,7 +164,7 @@ def submit_dr():
     return redirect(url_for('sub_dr'))  # Redirect to the thank you page
 
 # Route for doctor feedback records
-@app.route('/dr_feedback')
+@app.route('/dr_feedback-9883185166')
 def dr_feedback():
     dr_feedback_records = DrReviewFeedback.query.all()  # Query doctor feedback records
     return render_template('pat.html', feedback_records=dr_feedback_records)
@@ -178,6 +178,8 @@ def sub():
 @app.route('/Thank-you_dr')
 def sub_dr():
     return render_template('form-submitted.html')  # Thank you page for doctor review feedback
-
+@app.route('/aboutus')
+def about():
+    return render_template('aboutus.html')
 if __name__ == '__main__':
     app.run(debug=True)

@@ -12,6 +12,9 @@
             padding: 0px;
             font-family: 'Montserrat', sans-serif;
         }
+        body{
+            background-color: #E4FFFF;
+        }
         .nav {
             display: flex;
             height: 28px;
@@ -30,6 +33,18 @@
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
+        }
+        .entire{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .abouticon{
+           display: flex;
+           justify-content: center;
+           align-items: center;
         }
         .descbox {
             height: 530px;
@@ -58,7 +73,7 @@
         .button {
             display: flex;
             width: 158px;
-            height: 50px;
+            height: 40px;
             padding: 6px 32px;
             justify-content: center;
             align-items: center;
@@ -75,15 +90,35 @@
             height: 520px;
             margin: 0px;
         }
+        .info{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 130px;
+            
+            z-index: 1;
+        }
+        .infohere{
+            color: #000;
+            width: 600px;
+            text-align: center;
+            font-family: Montserrat;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500px;
+        }
         .drs_form {
             background: #F9F9F9;
-            padding: 40px 20px;
+            padding: 140px 20px;
             display: flex;
             justify-content: center;
             background-color: #E4FFFF;
+        
             background: url('{{ url_for('static', filename='images/stetho.png') }}') #E4FFFF 0px 0px / 100% 100% no-repeat;
         }
         .form-container {
+            
             background: #fff;
             padding: 20px 30px;
             border-radius: 8px;
@@ -135,6 +170,10 @@
         .mcq-option input[type="checkbox"] {
             display: none;
         }
+        #additionalTools{
+            margin-top: 5px;
+            margin-left: 2px;
+        }
         button {
             margin-top: 20px;
             padding: 10px;
@@ -168,14 +207,19 @@
         }
         a{
             text-decoration: none;
+            color: black;
         }
         @media only screen and (max-width: 480px){
             .nav {
-                padding: 10px;
-                gap: 40%;
+                padding: 15px;
+                gap: 60%;
             }
-        
-            
+            .entire{
+                width: 90px;
+            }
+            .aboutus{
+                width: 80px;
+            }
             .descbox{
                 height: fit-content;
                 display: flex;
@@ -219,7 +263,7 @@
                 margin-top: 20px;
             }
             .box2 img{
-                height: 360px;
+                height: 400px;
                 margin: 0px;
                 opacity: 0.3;
             }
@@ -246,7 +290,7 @@
         }
         @media only screen and (max-width: 400px) {
             .nav {
-                padding: 5px;
+                padding: 15px;
                 gap: 30%;
             }
         
@@ -330,13 +374,23 @@
 </head>
 <body>
     <div class="nav">
-        <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="" height="40px">
-        </div>
+        <a href="/">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="" height="40px">
+            </div>
+           </a>
+        <div class="entire">
+            <a href="/aboutus">
+                <div class="abouticon">
+                    <img src="{{ url_for('static', filename='images/aboutus.png') }}" alt="" height="25px">
+                </div>
+                <div class="aboutus">
+                    About us
+                </div>
+            </a>
+        </div> 
         
-        <div class="aboutus">
-            Get to Know Us
-        </div>
+        
     </div>
 
     <div class="descbox">
@@ -357,11 +411,15 @@
             <img src="{{ url_for('static', filename='images/patient_icon.png') }}" alt="" >
         </div>
     </div>
-
+    <div class="info">
+        <div class="infohere">
+            Quickly fill up this form so that we can serve you better.
+        </div>
+    </div>
     <div class="drs_form">
+        
         <div class="form-container">
             <form id="healthcareForm" action="/submit_dr" method="POST">
-                <h2>Healthcare Feedback Form</h2>
     
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -541,7 +599,7 @@
                 </div>
     
                 <label for="additionalTools">What additional tools or features would you need to grow your practice?</label>
-                <textarea id="additionalTools" name="additionalTools" rows="4" placeholder="Describe any tools or features that would help your practice grow."></textarea>
+                <textarea id="additionalTools" name="additionalTools" rows="3"></textarea>
     
                 <button type="submit">Submit</button>
             </form>

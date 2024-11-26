@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axyl</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        a{
+            text-decoration: none;
+        }
+        
+        body {
+            background: url('{{ url_for('static', filename='images/stetho.png') }}') no-repeat center center fixed;
+            background-size: 100% 150%;
+            background-color: #E4FFFF;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+            
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(245, 255, 255, 0.9); /* Transparent white */
+            box-shadow: 0px 1px 29px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .aboutus {
+            font-size: 16px;
+            font-weight: 600;
+            color: #347E7E;
+            padding: 8px 12px;
+            transition: 0.3s ease;
+        }
+
+        .aboutus:hover {
+            background-color: #347E7E;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .we {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: calc(100vh - 80px); /* Adjust height to fit after the navbar */
+            margin-top: 80px; /* Offset for the navbar */
+            text-align: center;
+        }
+
+        .heading {
+            font-size: 28px;
+            font-weight: 700;
+            color: #347E7E;
+            margin-bottom: 20px;
+            
+            line-height: 1.2;
+        }
+
+        .desc {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .we .desc b {
+            color: #347E7E;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.8); /* White transparent background */
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 900px;
+        }
+
+        @media screen and (max-width: 480px) {
+            .card{
+                width: 95%;
+            }
+            .heading {
+                font-size: 28px;
+            }
+
+            .desc {
+                font-size: 16px;
+            }
+
+            .we {
+                margin-top: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <a href="/">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            </div>
+        </a> 
+        <a href="/">
+            <div class="aboutus">
+                Back to home
+            </div>
+        </a>
+    </div>
+
+    <div class="we">
+        <div class="card">
+            <div class="heading">
+                Empowering Healthcare, One Connection at a Time.
+            </div>
+            <div class="desc">
+                We are on a mission to make healthcare more accessible, personalized, and efficient for everyone. 
+                Our platform connects patients with trusted healthcare providers and empowers doctors to expand their practices. 
+                Whether you're looking for the right doctor or the right patients, we make it seamless, secure, and simple.
+                <br>
+                <b>Join us as we transform the way healthcare is delivered across India.</b>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
